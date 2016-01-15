@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "bc564bec5222d64432aa14dc35f385f3",
-    "content-hash": "174c50c44b0393e6f384c820467c6694",
+    "hash": "5a1e0cb0bbd34c86995238818e3c5b8d",
+    "content-hash": "86d81796f5b06c64ca734da7a14580ce",
     "packages": [
         {
             "name": "bmatzner/foundation-bundle",
@@ -1985,6 +1985,67 @@
                 "templating"
             ],
             "time": "2015-11-05 12:49:06"
+        },
+        {
+            "name": "waldo/datatable-bundle",
+            "version": "3.0.12",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/waldo2188/DatatableBundle.git",
+                "reference": "d4caad03e1ddb5d63511d4fae93cf61256aeba46"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/waldo2188/DatatableBundle/zipball/d4caad03e1ddb5d63511d4fae93cf61256aeba46",
+                "reference": "d4caad03e1ddb5d63511d4fae93cf61256aeba46",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/common": "~2.1",
+                "php": ">=5.4.0",
+                "twig/twig": "~1.8"
+            },
+            "require-dev": {
+                "doctrine/dbal": "<2.5",
+                "doctrine/doctrine-bundle": "~1.4",
+                "doctrine/orm": "~2.2,>=2.2.3,<2.5",
+                "phpunit/phpunit": "~4.8",
+                "symfony/symfony": "2.7.*"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "Waldo\\DatatableBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ali hichem",
+                    "email": "ali.hichem@mail.com",
+                    "role": "Original Developer"
+                },
+                {
+                    "name": "Sébastien Convers",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Valérian Girard",
+                    "email": "valerian.girard@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Symfony2 Ajax Datagrid Bundle for doctrine2 entities",
+            "homepage": "https://github.com/waldo2188/DatatableBundle",
+            "keywords": [
+                "Symfony2",
+                "datatable",
+                "jquery"
+            ],
+            "time": "2015-10-06 09:50:04"
         }
     ],
     "packages-dev": [

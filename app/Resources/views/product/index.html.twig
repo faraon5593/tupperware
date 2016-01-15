@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="row">
+    <h1>Lista produktów</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nazwa</th>
+                <th>Ilość</th>
+                <th>Cena katalogowa</th>
+                <th>Cena</th>
+                <th>Opis</th>
+                <th>Dostępny</th>
+                <th>Dostępny od</th>
+                <th>Dostępny do</th>
+                <th>Zdjęcie</th>
+                <th>Zewnętrzny link</th>
+                <th>Akcje</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for product in products %}
+            <tr>
+                <td><a href="{{ path('product_show', { 'id': product.id }) }}">{{ product.id }}</a></td>
+                <td><a href="{{ path('product_show', { 'id': product.id }) }}">{{ product.name }}</a></td>
+                <td>{{ product.quantity }}</td>
+                <td>{{ product.baseprice }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.description }}</td>
+                <td>{% if product.avaliable %}Tak{% else %}Nie{% endif %}</td>
+                <td>{% if product.avaliablefrom %}{{ product.avaliablefrom|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if product.avaliableuntil %}{{ product.avaliableuntil|date('Y-m-d') }}{% endif %}</td>
+                <td><img src="{{ product.photo }}" style="height:150px;"/></td>
+                <td><a href="{{ product.externalurl }}" target="_blank">Link</a></td>
+
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('product_show', { 'id': product.id }) }}">Pokaż</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('product_edit', { 'id': product.id }) }}">Edytuj</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('product_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+</div>
+{% endblock %}

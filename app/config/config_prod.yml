@@ -25,3 +25,5 @@ monolog:
             level: debug
         console:
             type:  console
+twig:
+    cache: false
