@@ -29,7 +29,11 @@
         "incenteev/composer-parameter-handler": "^2.0",
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "waldo/datatable-bundle": "~3.0",
-        "bmatzner/foundation-bundle": "~5.3"
+        "ali/datatable": "dev-master",
+        "bmatzner/foundation-bundle": "~5.3",
+            "noiselabs/nusoap-bundle": "dev-master",
+
+        "symfony/dependency-injection": "^3.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
@@ -63,5 +67,21 @@
         "incenteev-parameters": {
             "file": "app/config/parameters.yml"
         }
+    },
+    "repositories": [
+    {
+        "type": "package",
+        "package": {
+            "name": "nusphere/nusoap",
+            "version": "0.9.5",
+            "dist": {
+                "url": "http://downloads.sourceforge.net/project/nusoap/nusoap/0.9.5/nusoap-0.9.5.zip",
+                "type": "zip"
+            },
+            "autoload": {
+                "classmap": ["lib/"]
+            }
+        }
     }
+]
 }

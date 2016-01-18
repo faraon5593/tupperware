@@ -73,6 +73,10 @@ fos_user:
     firewall_name: main
     user_class: AppBundle\Entity\User
 
-waldo_datatable:
+# waldo_datatable:
+#     all:    ~
+#     js:     ~
+
+ali_datatable:  
     all:    ~
     js:     ~

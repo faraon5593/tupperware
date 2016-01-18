@@ -2,16 +2,112 @@
 
 {% block body %}
     <h1>Dodawanie produktu</h1>
+   {{ form_start(form) }}
+      <div class="row">
+        <div class="large-12 columns">
+          <label>
+            {{ form_widget(form.name, { 'attr': {'placeholder': 'Nazwa'} }) }}
+          </label>{{ form_errors(form.name) }}
+        </div>
+        <div class="large-12 columns">
+          <div class="row collapse">
+            <div class="small-10 columns">
+                {{ form_widget(form.quantity, { 'attr': {'placeholder': 'Ilość'} }) }}
+            </div>
+            <div class="small-2 columns">
+              <span class="postfix">sztuk</span>
+            </div>
+          </div>
+        </div>
+        <div class="large-12 columns">
+          <div class="row collapse">
+            <div class="small-5 columns">
+                {{ form_widget(form.price, { 'attr': {'placeholder': 'Cena'} }) }}
+            </div>
+            <div class="small-1 columns">
+              <span class="postfix">zł</span>
+            </div>
+            <div class="small-5 columns">
+                 {{ form_widget(form.base_price, { 'attr': {'placeholder': 'Cena katalogowa'} }) }}
 
-    {{ form_start(form) }}
-        {% form_theme form 'form/fields.html.twig' %}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
+            </div>
+            <div class="small-1 columns">
+              <span class="postfix">zł</span>
+            </div>
+          </div>
+        </div>
+        <div class="large-12 columns">
+          <label>
+            {{ form_widget(form.description, { 'attr': {'placeholder': 'Opis', 'novalidate':'novalidate'} }) }}
+          </label>{{ form_errors(form.description) }}
+        </div>
+        <br>
+        <div class="large-12 columns">           
+          </label>
+            <div class="row collapse">
+                <div class="small-1 columns">
+                    Dostępny
+                </div>
+                <div class="small-11 columns">
+                  {{ form_widget(form.avaliable) }}
+                </div>
+            </div>
+        </div>
+        <div class="large-12 columns">           
+            <div class="row collapse">
+                <div class="small-2 columns">
+                    <span class="right" style="line-height:40px">Dostępny od &nbsp;</span>
+                </div>
+                <div class="small-4 columns">
+                  {{ form_widget(form.avaliable_from) }}
+                </div>
+                <div class="small-2 columns">
+                    <span class="right" style="line-height:40px">Dostępny do &nbsp;</span>
+                </div>
+                <div class="small-4 columns">
+                  {{ form_widget(form.avaliable_until) }}
+                </div>
+            </div>
+        </div>
+        <div class="large-12 columns">
+          <label>
+            {{ form_widget(form.photo, { 'attr': {'placeholder': 'Adres zdjęcia'} }) }}
+          </label>{{ form_errors(form.photo) }}
+        </div>
+        <div class="large-12 columns">
+          <label>
+            {{ form_widget(form.external_url, { 'attr': {'placeholder': 'Strona produktu'} }) }}
+          </label>{{ form_errors(form.external_url) }}
+        </div>
+      </div>
+        
+        <div class="row collapse">
+            <div class="small-11 columns"><a href="{{ path('product_index') }}" class="button tiny">Powrót</a></div>
+            <div class="small-1 columns">
+                <a href="#" onclick="$(this).closest('form').submit()" class="button small right">Zapisz</a>
+            </div>
+            {{ form_end(form) }}
+        </div>
 
-    <ul>
-        <li>
-            <a href="{{ path('product_index') }}">Wstecz</a>
-        </li>
-    </ul>
+      <script>
+      tinymce.init({
+          selector: 'textarea',
+          height: 500,
+          plugins: [
+            'advlist autolink lists link image charmap print preview anchor',
+            'searchreplace visualblocks code fullscreen',
+            'insertdatetime media table contextmenu paste code'
+          ],
+          toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+          content_css: [
+            '//fast.fonts.net/cssapi/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css',
+            '//www.tinymce.com/css/codepen.min.css'
+          ]
+        });
+        $( ".date" ).datepicker();
+        var $this = $('textarea');
+
+        // Remove the attribute...
+        $this.removeAttr('required');
+      </script>
 {% endblock %}

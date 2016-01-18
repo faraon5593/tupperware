@@ -17,7 +17,8 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Bmatzner\FoundationBundle\BmatznerFoundationBundle(),
-            new Waldo\DatatableBundle\WaldoDatatableBundle(),
+            new Ali\DatatableBundle\AliDatatableBundle(),
+            // new Waldo\DatatableBundle\WaldoDatatableBundle(),
             new AppBundle\AppBundle(),
         ];
 

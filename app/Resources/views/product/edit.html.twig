@@ -1,21 +1,128 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Product edit</h1>
-
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('product_index') }}">Back to the list</a>
-        </li>
-        <li>
+    <h1>Edycja produktu</h1>
+    <div class="row ">
+        <div class="large-12 ">
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+            <a id="delete" href="#" onclick="conf()" class=" right button small alert">Usuń</a>
             {{ form_end(delete_form) }}
-        </li>
-    </ul>
+        </div>
+    </div>
+ {{ form_start(edit_form) }}
+      <div class="row">
+        <div class="large-12 columns">
+          <label>
+            {{ form_widget(edit_form.name, { 'attr': {'placeholder': 'Nazwa'} }) }}
+          </label>{{ form_errors(edit_form.name) }}
+        </div>
+        <div class="large-12 columns">
+          <div class="row collapse">
+            <div class="small-10 columns">
+                {{ form_widget(edit_form.quantity, { 'attr': {'placeholder': 'Ilość'} }) }}
+            </div>
+            <div class="small-2 columns">
+              <span class="postfix">sztuk</span>
+            </div>
+          </div>
+        </div>
+        <div class="large-12 columns">
+          <div class="row collapse">
+            <div class="small-5 columns">
+                {{ form_widget(edit_form.price, { 'attr': {'placeholder': 'Cena'} }) }}
+            </div>
+            <div class="small-1 columns">
+              <span class="postfix">zł</span>
+            </div>
+            <div class="small-5 columns">
+                 {{ form_widget(edit_form.base_price, { 'attr': {'placeholder': 'Cena katalogowa'} }) }}
+
+            </div>
+            <div class="small-1 columns">
+              <span class="postfix">zł</span>
+            </div>
+          </div>
+        </div>
+        <div class="large-12 columns">
+          <label>
+            {{ form_widget(edit_form.description, { 'attr': {'placeholder': 'Opis', 'novalidate':'novalidate'} }) }}
+          </label>{{ form_errors(edit_form.description) }}
+        </div>
+        <br>
+        <div class="large-12 columns">           
+          </label>
+            <div class="row collapse">
+                <div class="small-1 columns">
+                    Dostępny
+                </div>
+                <div class="small-11 columns">
+                  {{ form_widget(edit_form.avaliable) }}
+                </div>
+            </div>
+        </div>
+        <div class="large-12 columns">           
+            <div class="row collapse">
+                <div class="small-2 columns">
+                    <span class="right" style="line-height:40px">Dostępny od &nbsp;</span>
+                </div>
+                <div class="small-4 columns">
+                  {{ form_widget(edit_form.avaliable_from) }}
+                </div>
+                <div class="small-2 columns">
+                    <span class="right" style="line-height:40px">Dostępny do &nbsp;</span>
+                </div>
+                <div class="small-4 columns">
+                  {{ form_widget(edit_form.avaliable_until) }}
+                </div>
+            </div>
+        </div>
+        <div class="large-12 columns">
+          <label>
+            {{ form_widget(edit_form.photo, { 'attr': {'placeholder': 'Adres zdjęcia'} }) }}
+          </label>{{ form_errors(edit_form.photo) }}
+        </div>
+        <div class="large-12 columns">
+          <label>
+            {{ form_widget(edit_form.external_url, { 'attr': {'placeholder': 'Strona produktu'} }) }}
+          </label>{{ form_errors(edit_form.external_url) }}
+        </div>
+      </div>
+        
+        <div class="row collapse">
+            <div class="small-11 columns"><a href="{{ path('product_index') }}" class="button tiny">Powrót</a></div>
+            <div class="small-1 columns">
+                <a href="#" onclick="$(this).closest('form').submit()" class="button small right">Zapisz</a>
+            </div>
+            {{ form_end(edit_form) }}
+        </div>
+
+      <script>
+      tinymce.init({
+          selector: 'textarea',
+          height: 500,
+          plugins: [
+            'advlist autolink lists link image charmap print preview anchor',
+            'searchreplace visualblocks code fullscreen',
+            'insertdatetime media table contextmenu paste code'
+          ],
+          toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+          content_css: [
+            '//fast.fonts.net/cssapi/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css',
+            '//www.tinymce.com/css/codepen.min.css'
+          ]
+        });
+        $( ".date" ).datepicker();
+        var $this = $('textarea');
+
+        // Remove the attribute...
+        $this.removeAttr('required');
+
+      function conf()
+      {
+        var a = confirm("Na pewno trwale usunąć produkt?");
+        if(a){
+          $("#delete").closest('form').submit()
+        }
+      }
+      </script>
 {% endblock %}

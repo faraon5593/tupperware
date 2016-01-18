@@ -5,6 +5,7 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 class ProductType extends AbstractType
 {
@@ -21,11 +22,19 @@ class ProductType extends AbstractType
             ->add('price')
             ->add('description')
             ->add('avaliable')
-            ->add('avaliable_from')
-            ->add('avaliable_until')
             ->add('photo')
             ->add('external_url')
-        ;
+            ->add('avaliable_from', DateType::class,array(
+                'input' => 'datetime',
+                'widget' => 'single_text',
+                'format' => 'MM/dd/yyyy',
+                'attr' => array('class' => 'date')))
+            ->add('avaliable_until',DateType::class,array(
+                'input' => 'datetime',
+                'widget' => 'single_text',
+                'format' => 'MM/dd/yyyy',
+                'attr' => array('class' => 'date')))
+            ;
     }
     
     /**

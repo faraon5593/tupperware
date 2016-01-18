@@ -8,7 +8,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use AppBundle\Entity\Product;
 use AppBundle\Form\ProductType;
-
 /**
  * Product controller.
  *
@@ -16,6 +15,7 @@ use AppBundle\Form\ProductType;
  */
 class ProductController extends Controller
 {
+
     /**
      * Lists all Product entities.
      *
@@ -27,7 +27,7 @@ class ProductController extends Controller
         if (!$this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
             throw $this->createAccessDeniedException();
         }
-        
+
         $em = $this->getDoctrine()->getManager();
 
         $products = $em->getRepository('AppBundle:Product')->findAll();
@@ -48,7 +48,6 @@ class ProductController extends Controller
         $product = new Product();
         $form = $this->createForm('AppBundle\Form\ProductType', $product);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($product);
@@ -90,13 +89,12 @@ class ProductController extends Controller
         $deleteForm = $this->createDeleteForm($product);
         $editForm = $this->createForm('AppBundle\Form\ProductType', $product);
         $editForm->handleRequest($request);
-
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($product);
             $em->flush();
 
-            return $this->redirectToRoute('product_edit', array('id' => $product->getId()));
+            return $this->redirectToRoute('product_show', array('id' => $product->getId()));
         }
 
         return $this->render('product/edit.html.twig', array(
@@ -141,4 +139,5 @@ class ProductController extends Controller
             ->getForm()
         ;
     }
+
 }
