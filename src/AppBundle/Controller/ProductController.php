@@ -125,6 +125,19 @@ class ProductController extends Controller
     }
 
     /**
+     * test
+     *
+     * @Route("/test", name="product_auction")
+     * @Method("GET")
+     */
+    public function testAction(Request $request, Product $product)
+    {
+        $integrator = $this->get('allegro_integration');
+
+        return $integrator->test();
+    }
+
+    /**
      * Creates a form to delete a Product entity.
      *
      * @param Product $product The Product entity
@@ -139,5 +152,7 @@ class ProductController extends Controller
             ->getForm()
         ;
     }
+
+
 
 }

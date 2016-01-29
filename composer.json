@@ -31,8 +31,6 @@
         "waldo/datatable-bundle": "~3.0",
         "ali/datatable": "dev-master",
         "bmatzner/foundation-bundle": "~5.3",
-            "noiselabs/nusoap-bundle": "dev-master",
-
         "symfony/dependency-injection": "^3.0"
     },
     "require-dev": {

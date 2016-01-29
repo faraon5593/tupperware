@@ -19,7 +19,17 @@
         <div class="large-12 columns">
           <div class="row collapse">
             <div class="small-10 columns">
-                {{ form_widget(edit_form.quantity, { 'attr': {'placeholder': 'Ilość'} }) }}
+                {{ form_widget(edit_form.quantity_wroclaw, { 'attr': {'placeholder': 'Ilość Wrocław'} }) }}
+            </div>
+            <div class="small-2 columns">
+              <span class="postfix">sztuk</span>
+            </div>
+          </div>
+        </div>
+        <div class="large-12 columns">
+          <div class="row collapse">
+            <div class="small-10 columns">
+                {{ form_widget(edit_form.quantity_szczecinek, { 'attr': {'placeholder': 'Ilość Szczecinek'} }) }}
             </div>
             <div class="small-2 columns">
               <span class="postfix">sztuk</span>
@@ -76,11 +86,11 @@
                 </div>
             </div>
         </div>
-        <div class="large-12 columns">
+{#         <div class="large-12 columns">
           <label>
             {{ form_widget(edit_form.photo, { 'attr': {'placeholder': 'Adres zdjęcia'} }) }}
           </label>{{ form_errors(edit_form.photo) }}
-        </div>
+        </div> #}
         <div class="large-12 columns">
           <label>
             {{ form_widget(edit_form.external_url, { 'attr': {'placeholder': 'Strona produktu'} }) }}

@@ -1,0 +1,96 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Product
+ *
+ * @ORM\Table(name="product")
+ * @ORM\Entity
+ */
+class Product
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=100, nullable=false)
+     */
+    private $name;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="quantity_szczecinek", type="integer", nullable=false)
+     */
+    private $quantitySzczecinek;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="quantity_wroclaw", type="integer", nullable=false)
+     */
+    private $quantityWroclaw;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="base_price", type="decimal", precision=10, scale=2, nullable=false)
+     */
+    private $basePrice;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="price", type="decimal", precision=10, scale=2, nullable=false)
+     */
+    private $price;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text", nullable=true)
+     */
+    private $description;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="avaliable", type="boolean", nullable=false)
+     */
+    private $avaliable;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="avaliable_from", type="date", nullable=true)
+     */
+    private $avaliableFrom;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="avaliable_until", type="date", nullable=true)
+     */
+    private $avaliableUntil;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="external_url", type="string", length=255, nullable=true)
+     */
+    private $externalUrl;
+
+
+}
+

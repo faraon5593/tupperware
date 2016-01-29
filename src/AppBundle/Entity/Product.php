@@ -1,69 +1,96 @@
 <?php
 
 namespace AppBundle\Entity;
+
 use Doctrine\ORM\Mapping as ORM;
+
 /**
- * @ORM\Entity
+ * Product
+ *
  * @ORM\Table(name="product")
+ * @ORM\Entity
  */
 class Product
 {
     /**
-     * @ORM\Column(type="integer")
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    protected $id;
+    private $id;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=100, nullable=false)
      */
-    protected $name;
+    private $name;
 
     /**
-     * @ORM\Column(type="integer")
+     * @var integer
+     *
+     * @ORM\Column(name="quantity_szczecinek", type="integer", nullable=false)
      */
-    protected $quantity;
+    private $quantitySzczecinek;
 
     /**
-     * @ORM\Column(type="decimal", scale=2)
+     * @var integer
+     *
+     * @ORM\Column(name="quantity_wroclaw", type="integer", nullable=false)
      */
-    protected $base_price;
+    private $quantityWroclaw;
 
     /**
-     * @ORM\Column(type="decimal", scale=2)
+     * @var string
+     *
+     * @ORM\Column(name="base_price", type="decimal", precision=10, scale=2, nullable=false)
      */
-    protected $price;
+    private $basePrice;
 
     /**
-     * @ORM\Column(type="text")
+     * @var string
+     *
+     * @ORM\Column(name="price", type="decimal", precision=10, scale=2, nullable=false)
      */
-    protected $description;
+    private $price;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text", nullable=true)
      */
-    protected $avaliable;
+    private $description;
 
     /**
-     * @ORM\Column(type="date")
+     * @var boolean
+     *
+     * @ORM\Column(name="avaliable", type="boolean", nullable=false)
      */
-    protected $avaliable_from;
+    private $avaliable;
 
     /**
-     * @ORM\Column(type="date")
+     * @var \DateTime
+     *
+     * @ORM\Column(name="avaliable_from", type="date", nullable=true)
      */
-    protected $avaliable_until;
+    private $avaliableFrom;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @var \DateTime
+     *
+     * @ORM\Column(name="avaliable_until", type="date", nullable=true)
      */
-    protected $photo;
+    private $avaliableUntil;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @var string
+     *
+     * @ORM\Column(name="external_url", type="string", length=255, nullable=true)
      */
-    protected $external_url;
+    private $externalUrl;
+
 
 
     /**
@@ -101,27 +128,51 @@ class Product
     }
 
     /**
-     * Set quantity
+     * Set quantitySzczecinek
      *
-     * @param integer $quantity
+     * @param integer $quantitySzczecinek
      *
      * @return Product
      */
-    public function setQuantity($quantity)
+    public function setQuantitySzczecinek($quantitySzczecinek)
     {
-        $this->quantity = $quantity;
+        $this->quantitySzczecinek = $quantitySzczecinek;
 
         return $this;
     }
 
     /**
-     * Get quantity
+     * Get quantitySzczecinek
      *
      * @return integer
      */
-    public function getQuantity()
+    public function getQuantitySzczecinek()
     {
-        return $this->quantity;
+        return $this->quantitySzczecinek;
+    }
+
+    /**
+     * Set quantityWroclaw
+     *
+     * @param integer $quantityWroclaw
+     *
+     * @return Product
+     */
+    public function setQuantityWroclaw($quantityWroclaw)
+    {
+        $this->quantityWroclaw = $quantityWroclaw;
+
+        return $this;
+    }
+
+    /**
+     * Get quantityWroclaw
+     *
+     * @return integer
+     */
+    public function getQuantityWroclaw()
+    {
+        return $this->quantityWroclaw;
     }
 
     /**
@@ -133,7 +184,7 @@ class Product
      */
     public function setBasePrice($basePrice)
     {
-        $this->base_price = $basePrice;
+        $this->basePrice = $basePrice;
 
         return $this;
     }
@@ -145,7 +196,7 @@ class Product
      */
     public function getBasePrice()
     {
-        return $this->base_price;
+        return $this->basePrice;
     }
 
     /**
@@ -229,7 +280,7 @@ class Product
      */
     public function setAvaliableFrom($avaliableFrom)
     {
-        $this->avaliable_from = $avaliableFrom;
+        $this->avaliableFrom = $avaliableFrom;
 
         return $this;
     }
@@ -241,7 +292,7 @@ class Product
      */
     public function getAvaliableFrom()
     {
-        return $this->avaliable_from;
+        return $this->avaliableFrom;
     }
 
     /**
@@ -253,7 +304,7 @@ class Product
      */
     public function setAvaliableUntil($avaliableUntil)
     {
-        $this->avaliable_until = $avaliableUntil;
+        $this->avaliableUntil = $avaliableUntil;
 
         return $this;
     }
@@ -265,31 +316,7 @@ class Product
      */
     public function getAvaliableUntil()
     {
-        return $this->avaliable_until;
-    }
-
-    /**
-     * Set photo
-     *
-     * @param string $photo
-     *
-     * @return Product
-     */
-    public function setPhoto($photo)
-    {
-        $this->photo = $photo;
-
-        return $this;
-    }
-
-    /**
-     * Get photo
-     *
-     * @return string
-     */
-    public function getPhoto()
-    {
-        return $this->photo;
+        return $this->avaliableUntil;
     }
 
     /**
@@ -301,7 +328,7 @@ class Product
      */
     public function setExternalUrl($externalUrl)
     {
-        $this->external_url = $externalUrl;
+        $this->externalUrl = $externalUrl;
 
         return $this;
     }
@@ -313,6 +340,6 @@ class Product
      */
     public function getExternalUrl()
     {
-        return $this->external_url;
+        return $this->externalUrl;
     }
 }

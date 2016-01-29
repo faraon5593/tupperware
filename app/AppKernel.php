@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new Ali\DatatableBundle\AliDatatableBundle(),
             // new Waldo\DatatableBundle\WaldoDatatableBundle(),
             new AppBundle\AppBundle(),
+            new AllegroBundle\AllegroBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

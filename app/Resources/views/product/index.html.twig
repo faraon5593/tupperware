@@ -3,7 +3,7 @@
 {% block body %}
 
 
-
+<div style="margin:50px;">
 <table id="products" class="display">
     <thead>
         <tr>
@@ -21,15 +21,15 @@
             <td><a href="{{ path('product_show', { 'id': item.id }) }}">{{ item.name }}</a></td>
             <td>{{ item.price }}</td>
             <td>{{ item.avaliable }}</td>
-            <td>{{ item.quantity }}</td>
-            <td><img style="height: 120px;" src="{{ item.photo }}"/></td>
+            <td>{{ item.quantityWroclaw + item.quantitySzczecinek }}</td>
+{#             <td><img style="height: 120px;" src="{{ item.photo }}"/></td> #}
             <td><a href="{{ path('product_edit', { 'id': item.id }) }}"><i class="fa fa-pencil-square-o"></i></a></td>
         </tr>
 		{% endfor %}
     </tbody>
 </table>
 <a class="button small" href="{{ path('product_new') }}">Dodaj</a>
-
+</div>
 <script type="text/javascript">
 $(document).ready(function(){
     $('#products').DataTable();

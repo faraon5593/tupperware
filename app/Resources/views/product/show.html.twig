@@ -11,8 +11,12 @@
                     <td>{{ product.name }}</td>
                 </tr>
                 <tr>
-                    <th>Ilość</th>
-                    <td>{{ product.quantity }}</td>
+                    <th>Ilość Wrocław</th>
+                    <td>{{ product.quantityWroclaw }}</td>
+                </tr>
+                <tr>
+                    <th>Ilość Szczecinek</th>
+                    <td>{{ product.quantitySzczecinek }}</td>
                 </tr>
                 <tr>
                     <th>Cena katalogowa</th>
@@ -38,10 +42,10 @@
                     <th>Dostępny do</th>
                     <td>{% if product.avaliableuntil %}{{ product.avaliableuntil|date('Y-m-d') }}{% endif %}</td>
                 </tr>
-                <tr>
+{#                 <tr>
                     <th>Zdjęcie</th>
                     <td>{{ product.photo }}</td>
-                </tr>
+                </tr> #}
                 <tr>
                     <th>Link zewnętrzny</th>
                     <td>{{ product.externalurl }}</td>

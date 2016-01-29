@@ -17,12 +17,12 @@ class ProductType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('quantity')
+            ->add('quantity_wroclaw')
+            ->add('quantity_szczecinek')
             ->add('base_price')
             ->add('price')
             ->add('description')
             ->add('avaliable')
-            ->add('photo')
             ->add('external_url')
             ->add('avaliable_from', DateType::class,array(
                 'input' => 'datetime',
